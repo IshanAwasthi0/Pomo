@@ -1,10 +1,9 @@
 'use client'
 
 import { SubmitEvent, useState } from "react";
-import { Task } from "../types";
 import { addTask } from "../actions/taskActions";
 
-const AddTaskForm = ({tasks} : {tasks: Task[]}) => {
+const AddTaskForm = () => {
     const [newTask, setNewTask] = useState({ title: "", description: "", status: "" });
     
     const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {

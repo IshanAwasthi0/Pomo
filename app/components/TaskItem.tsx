@@ -1,3 +1,5 @@
+'use client'
+
 import { Task } from "../types"
 import { deleteTask } from "../actions/taskActions"
 
