@@ -18,29 +18,37 @@ const AddTaskForm = () => {
 
     return (
         <>
-            <div className="flex justify-center gap-2 p-4 border border-gray-500 rounded-md w-100 h-70">
+            <div>
                 <form
                 onSubmit={handleSubmit}
-                className="flex gap-2 flex-col">
-                    <input
-                    type="text" placeholder="title"
-                    value={newTask.title}
-                    onChange={(e) => setNewTask((prev) => ({...prev, title: e.target.value }))}
-                    className="border border-gray-500 rounded-md px-2 py-1 w-80 h-12"
-                    />
-                    <input 
-                    type="text" placeholder="description" 
-                    value={newTask.description}
-                    onChange={(e) => setNewTask((prev) => ({...prev, description: e.target.value }))}
-                    className="border border-gray-500 rounded-md px-2 py-1 w-80 h-12"
-                    />
-                    <input 
-                    type="text" placeholder="status" 
-                    value={newTask.status}
-                    onChange={(e) => setNewTask((prev) => ({...prev, status: e.target.value }))}
-                    className="border border-gray-500 rounded-md px-2 py-1 w-80 h-12 mb-4"
-                    />
-                    <button type="submit" className="bg-white text-black px-4 py-2 rounded-md">Add Task</button>
+                className="flex flex-col gap-10 items-center">
+                    <div className="flex flex-col items-center">
+                        <input
+                        type="text"
+                        placeholder="Title"
+                        value={newTask.title}
+                        onChange={(e) => setNewTask((prev) => ({...prev, title: e.target.value }))}
+                        className="input-field"
+                        required
+                        />
+                        <input 
+                        type="text"
+                        placeholder="Description" 
+                        value={newTask.description}
+                        onChange={(e) => setNewTask((prev) => ({...prev, description: e.target.value }))}
+                        className="input-field"
+                        required
+                        />
+                        <input 
+                        type="text"
+                        placeholder="Status" 
+                        value={newTask.status}
+                        onChange={(e) => setNewTask((prev) => ({...prev, status: e.target.value }))}
+                        className="input-field mb-10"
+                        required
+                        />
+                    </div>
+                    <button type="submit" className="btn w-50">Add Task</button>
                 </form>
             </div>
         </>

@@ -12,15 +12,37 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --font-lobster: "Lobster Two", sans-serif;
+  --font-courier: "Courier Prime", monospace;
+  --color-brown: #975F40;
+  --color-beige: #FDE7CF;
+  --color-background: #FFF3E6;
+  --color-tomato: #FF8A73;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #FFF3E6;
     --foreground: #ededed;
+  }
+}
+
+@layer utility{
+  .heading{
+    @apply font-lobster text-6xl text-brown;
+  }
+  .btn{
+    @apply h-16 rounded-lg bg-tomato text-background font-lobster text-3xl hover:bg-[#ff785d] hover:text-white transition-colors duration-300;
+  }
+  .card-container{
+    @apply border-3 border-tomato rounded-lg w-160 h-80 flex flex-col gap-7 p-10;
+  }
+  .input-field{
+    @apply border-[2.5px] border-black bg-beige pl-6 rounded-lg px-2 w-120 h-16 mb-7 placeholder:text-[#BAA092] text-black font-courier text-2xl;
   }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
