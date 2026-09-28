@@ -1,9 +1,44 @@
-import Link from "next/dist/client/link";
+"use client";
 
-export default async function Home() {
+import { SubmitEvent } from "react";
+import Link from "next/dist/client/link";
+import { useState } from "react";
+
+
+export default function Home() {
+  const [user, setUser] = useState({ email: "", password: "" });
+  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  }
   return (
     <>
-      <Link href="/home"><button>Sign in</button></Link>
+      <div className="flex flex-col items-center gap-20 mt-40">
+        <h1 className="heading">Sign in</h1>
+        <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 items-center"
+        >
+          <input
+          type="email"
+          placeholder="Email"
+          value={user.email}
+          onChange={(e) => setUser((prev) => ({...prev, email: e.target.value }))}
+          className="input-field"
+          required
+          />
+          <input
+          type="password"
+          placeholder="Password"
+          value={user.password}
+          onChange={(e) => setUser((prev) => ({...prev, password: e.target.value }))}
+          className="input-field"
+          required
+          />
+          <Link href="/signup"><p className="font-courier text-brown mt-[-1rem] text-xl hover:underline">Don't have an account? Register</p></Link>
+          <Link href="/home"><button className="btn w-40 mt-12">Sign in</button></Link>
+        </form>
+        
+      </div>
     </>
   );
 }
