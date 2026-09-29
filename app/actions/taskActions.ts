@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { supabase } from "../lib/supabase-client";
 
 export const addTask = async ({task} : {task: {title: string, description: string, status: string}}) => {
@@ -20,4 +21,9 @@ export const deleteTask = async (id: number) => {
     if (error) {
         throw new Error(error.message);
     }
+}
+
+export async function handleLogout() {
+    await supabase.auth.signOut();
+    redirect("/");
 }
